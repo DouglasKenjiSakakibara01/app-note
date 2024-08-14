@@ -5,6 +5,13 @@ import { TarefaComponent } from './tarefa/tarefa-page/tarefa.component'
 import { TarefaFormComponent } from './tarefa/tarefa-form/tarefa-form/tarefa-form.component';
 const routes: Routes = [
   {
+    
+    path: '',
+    component: InicioComponent,
+
+  },
+  {
+
     path: 'inicio',
     component: InicioComponent,
 
