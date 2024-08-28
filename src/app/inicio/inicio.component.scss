@@ -1,6 +1,19 @@
+.cabecalho {
+    height: 70px;
+    background-color: cornflowerblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.titulo-cabecalho {
+    font-size: 30px;
+    color: white;
+}
 .centralizar {
     position: relative;  
-    top: 30%;
+    top: 18%;
+
 }
 
 .menu-inicio {

@@ -15,7 +15,7 @@
 <ion-content>
   <ion-list class="container-form">
     <ion-item class="input-form">
-      <ion-input placeholder="*Título"  [(ngModel)]="titulo"></ion-input>
+      <ion-input placeholder="*Título" [(ngModel)]="titulo"></ion-input>
     </ion-item>
     <ion-text *ngIf="tituloInvalido" class="texto-obrigatorio">Campo Obrigatório</ion-text>
     <ion-item class="input-form">
@@ -23,21 +23,22 @@
     </ion-item>
     <ion-text *ngIf="descricaoInvalido" class="texto-obrigatorio">Campo Obrigatório</ion-text>
     <ion-item class="input-form">
-    <ion-input value="{{ data | date: 'dd MMM yyyy' }}" id="date" placeholder="Selecione uma data"></ion-input>
-    <ion-popover trigger="date" [dismissOnSelect]="false" >
+      <ion-input value="{{ data | date: 'dd/MM/yyyy' }}" id="date" placeholder="Selecione uma data"></ion-input>
+      <ion-popover trigger="date" [dismissOnSelect]="false">
         <ng-template>
-            <ion-datetime presentation="date" [(ngModel)]="data" locale="pt-BR" locale="pt-BR" show-default-buttons="true" cancel-text="Cancelar" done-text="OK">></ion-datetime>
+          <ion-datetime presentation="date" [(ngModel)]="data" locale="pt-BR"show-default-buttons="true"
+            cancel-text="Cancelar" done-text="OK">></ion-datetime>
         </ng-template>
-    </ion-popover>
+      </ion-popover>
     </ion-item>
     <ion-item class="input-form">
       <ion-input value="{{ horario | date: 'HH:mm' }}" id="time" placeholder="Selecione um horário"></ion-input>
       <ion-popover trigger="time" [dismissOnSelect]="true">
-          <ng-template>
-              <ion-datetime presentation="time" [(ngModel)]="horario"></ion-datetime>
-          </ng-template>
+        <ng-template>
+          <ion-datetime presentation="time" [(ngModel)]="horario"></ion-datetime>
+        </ng-template>
       </ion-popover>
-      </ion-item>
+    </ion-item>
   </ion-list>
 
   <ion-row class="ion-justify-content-center">

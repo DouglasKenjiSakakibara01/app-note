@@ -18,11 +18,65 @@
     </ion-col>
   </ion-row>
 
-  <ng-container *ngIf="listaTarefa" >
+  <ng-container *ngIf="listaTarefa && !editar" >
     <ion-row *ngFor="let tarefa of listaTarefa" class="ion-justify-content-center">
-      <ion-col class="ion-text-center" class="tarefa" size="10">
-        <p class="tarefa-titulo">{{tarefa.titulo}}</p>
-      </ion-col> 
+      <ion-col size="11" class="tarefa" (click)="EditarTarefa(tarefa)">
+        <ion-row>
+          <ion-col>
+            <ion-item style="--background: transparent;" lines="none" button="false" detail="false">
+              <ion-checkbox slot="start" (click)="checkboxClick($event)"></ion-checkbox>
+              <ion-label class="tarefa-titulo">{{tarefa.titulo}}</ion-label>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        
+        <ion-row *ngIf="tarefa.data">
+          <ion-col size="12">
+            {{tarefa.data}}
+          </ion-col>
+        </ion-row>
+      </ion-col>
     </ion-row>
+  </ng-container>
+
+  <ng-container *ngIf="listaTarefa && editar">
+    <ion-content>
+      <ion-list class="container-form">
+        <ion-item class="input-form">
+          <ion-input placeholder="*Título" value="{{titulo}}" [(ngModel)]="titulo"></ion-input>
+        </ion-item>
+        <!-- <ion-text class="texto-obrigatorio">Campo Obrigatório</ion-text> -->
+        <ion-item class="input-form">
+          <ion-input placeholder="*Descrição" value="{{descricao}}" [(ngModel)]="descricao" rows="2"></ion-input>
+        </ion-item>
+        <!-- <ion-text class="texto-obrigatorio">Campo Obrigatório</ion-text> -->
+        <ion-item class="input-form">
+          <ion-input value="{{ data | date: 'dd/MM/yyyy' }}" id="date" placeholder="Selecione uma data"></ion-input>
+          <ion-popover trigger="date" [dismissOnSelect]="false">
+            <ng-template>
+              <ion-datetime presentation="date" [(ngModel)]="data" locale="pt-BR"show-default-buttons="true"
+                cancel-text="Cancelar" done-text="OK">></ion-datetime>
+            </ng-template>
+          </ion-popover>
+        </ion-item>
+        <ion-item class="input-form">
+          <ion-input value="{{ horario | date: 'HH:mm' }}" id="time" placeholder="Selecione um horário"></ion-input>
+          <ion-popover trigger="time" [dismissOnSelect]="true">
+            <ng-template>
+              <ion-datetime presentation="time" [(ngModel)]="horario"></ion-datetime>
+            </ng-template>
+          </ion-popover>
+        </ion-item>
+      </ion-list>
+    
+      <ion-row class="ion-justify-content-center">
+        <ion-col size="5">
+          <ion-button class="botao-form" (click)="RetornaPagina()">Cancelar</ion-button>
+        </ion-col>
+        <ion-col size="5">
+          <ion-button class="botao-form" (click)="AtualizarTarefa()">Atualizar </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-content>
   </ng-container>
 </ion-content>

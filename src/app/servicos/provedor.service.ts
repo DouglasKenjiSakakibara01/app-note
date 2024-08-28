@@ -19,5 +19,9 @@ export class ProvedorService {
     return this.http.get(`${this.url}/tarefa/lista-tarefa`);
   }
 
+  AtualizaTarefa(id:any, tarefa:any) {
+    return this.http.put(`${this.url}/tarefa/atualiza/${id}`, tarefa)
+  }
+
 
 }

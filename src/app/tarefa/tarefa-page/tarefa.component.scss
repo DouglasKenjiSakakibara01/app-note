@@ -4,13 +4,36 @@
 }
 
 .tarefa {
-    background-color: antiquewhite;
+    background-color: rgb(209 205 205);
     margin-bottom: 25px;
-    border-radius: 4px;
+    border-radius: 10px;
 }
 
 .tarefa-titulo {
-    text-align: center;
-    border-bottom: 1px solid black;
+    color: var(--ion-color-primary, #0054e9);
+}
 
+.container-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.input-form {
+    width: 80%;
+    border: 1px solid black;
+    margin-top: 20px;
+}
+
+.botao-form {
+    --border-radius: 20px;
+    font-size: 15px;
+}
+
+.texto-obrigatorio {
+    width: 80%;
+    color: red;
+    font-size: 12px;
 }
